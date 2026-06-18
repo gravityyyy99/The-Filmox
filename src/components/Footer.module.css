@@ -1,0 +1,137 @@
+.footer {
+  background-color: var(--color-charcoal);
+  border-top: 1px solid rgba(201, 160, 92, 0.1);
+  padding: 5rem 0 2rem;
+  margin-top: auto;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+  margin-bottom: 4rem;
+}
+
+.brand {
+  max-width: 400px;
+}
+
+.footerLogoContainer {
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--color-antique-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-charcoal);
+  margin-bottom: 1.5rem;
+}
+
+.footerLogo {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 2rem;
+  color: var(--color-antique-gold);
+  letter-spacing: 0.15em;
+  margin-bottom: 0.5rem;
+}
+
+.tagline {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--color-bright-gold);
+  margin-bottom: 1.5rem;
+  opacity: 0.8;
+}
+
+.description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-bone-white);
+  opacity: 0.7;
+}
+
+.links h3, .contact h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--color-antique-gold);
+  margin-bottom: 1.5rem;
+}
+
+.links ul {
+  list-style: none;
+}
+
+.links li {
+  margin-bottom: 0.75rem;
+}
+
+.links a, .contact a {
+  font-size: 0.95rem;
+  color: var(--color-bone-white);
+  opacity: 0.7;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+.links a:hover, .contact a:hover {
+  color: var(--color-bright-gold);
+  opacity: 1;
+}
+
+.contact p {
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--color-bone-white);
+  opacity: 0.7;
+}
+
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(201, 160, 92, 0.1);
+  font-size: 0.85rem;
+  color: var(--color-bone-white);
+  opacity: 0.5;
+}
+
+.legal {
+  display: flex;
+  gap: 2rem;
+}
+
+.legal a:hover {
+  color: var(--color-bright-gold);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .bottom {
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+}

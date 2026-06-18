@@ -1,0 +1,229 @@
+.container {
+  min-height: 100vh;
+  background-color: var(--color-cinema-black);
+  padding-top: var(--nav-height);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(61, 15, 15, 0.3) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--color-bone-white);
+  opacity: 0.6;
+  font-weight: 300;
+}
+
+.story {
+  padding: 6rem 2rem;
+  background-color: var(--color-charcoal);
+  border-top: 1px solid rgba(201, 160, 92, 0.05);
+  border-bottom: 1px solid rgba(201, 160, 92, 0.05);
+}
+
+.storyContent {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 768px) {
+  .storyContent {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+  }
+}
+
+.storyText h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.storyText p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--color-bone-white);
+  opacity: 0.8;
+  margin-bottom: 1.5rem;
+}
+
+.visualPlaceholder {
+  aspect-ratio: 16/10;
+  background-color: var(--color-cinema-black);
+  border: 1px solid rgba(201, 160, 92, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-antique-gold);
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  font-style: italic;
+  position: relative;
+}
+
+.visualPlaceholder::before,
+.visualPlaceholder::after {
+  content: '';
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border: 1px solid var(--color-antique-gold);
+}
+
+.visualPlaceholder::before {
+  top: 15px;
+  left: 15px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.visualPlaceholder::after {
+  bottom: 15px;
+  right: 15px;
+  border-left: none;
+  border-top: none;
+}
+
+.team {
+  padding: 8rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.teamHeader {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.teamHeader h2 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.teamHeader p {
+  font-size: 1.1rem;
+  opacity: 0.7;
+  letter-spacing: 0.05em;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 640px) {
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .teamGrid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.memberCard {
+  background-color: rgba(26, 20, 18, 0.5);
+  border: 1px solid rgba(201, 160, 92, 0.05);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.memberCard:hover {
+  transform: translateY(-8px);
+  border-color: rgba(201, 160, 92, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.memberImage {
+  aspect-ratio: 4/5;
+  background-color: var(--color-cinema-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-serif);
+  font-style: italic;
+  color: var(--color-antique-gold);
+  border-bottom: 1px solid rgba(201, 160, 92, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.memberImageOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(10, 8, 7, 0.8), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.memberCard:hover .memberImageOverlay {
+  opacity: 1;
+}
+
+.memberInfo {
+  padding: 1.8rem;
+  text-align: center;
+}
+
+.memberInfo h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.3rem;
+  color: var(--color-bone-white);
+}
+
+.memberRole {
+  font-size: 0.85rem;
+  color: var(--color-bright-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+}
+
+.memberBio {
+  font-size: 0.9rem;
+  opacity: 0.7;
+  line-height: 1.6;
+}

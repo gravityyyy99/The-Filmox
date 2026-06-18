@@ -1,0 +1,249 @@
+.container {
+  min-height: 100vh;
+  background-color: var(--color-cinema-black);
+  padding-top: var(--nav-height);
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  padding: 8rem 2rem 4rem;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(61, 15, 15, 0.3) 0%, transparent 70%);
+  z-index: 1;
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  line-height: 1.1;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-bone-white);
+  opacity: 0.6;
+  font-weight: 300;
+}
+
+.contactContent {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2rem 2rem 8rem;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 5rem;
+}
+
+@media (min-width: 900px) {
+  .contactContent {
+    grid-template-columns: 1fr 1.3fr;
+  }
+}
+
+.contactInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.infoBlock h2 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.infoBlock p {
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.7;
+}
+
+.directLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.linkCard {
+  background-color: var(--color-charcoal);
+  border: 1px solid rgba(201, 160, 92, 0.05);
+  border-radius: 4px;
+  padding: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.linkCard:hover {
+  border-color: var(--color-antique-gold);
+  transform: translateY(-3px);
+}
+
+.linkCard span {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-antique-gold);
+}
+
+.linkCard a {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--color-bone-white);
+  transition: color 0.3s ease;
+}
+
+.linkCard a:hover {
+  color: var(--color-bright-gold);
+}
+
+.formWrapper {
+  background-color: var(--color-charcoal);
+  border: 1px solid rgba(201, 160, 92, 0.08);
+  border-radius: 4px;
+  padding: 3rem 2.5rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 640px) {
+  .formGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .fullWidth {
+    grid-column: span 2;
+  }
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.formGroup label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-antique-gold);
+  font-weight: 500;
+}
+
+.inputField,
+.selectField,
+.textareaField {
+  background-color: var(--color-cinema-black);
+  border: 1px solid rgba(201, 160, 92, 0.15);
+  border-radius: 2px;
+  padding: 1rem;
+  color: var(--color-bone-white);
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.inputField:focus,
+.selectField:focus,
+.textareaField:focus {
+  outline: none;
+  border-color: var(--color-bright-gold);
+  box-shadow: 0 0 8px rgba(232, 199, 126, 0.2);
+}
+
+.textareaField {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.submitBtn {
+  width: 100%;
+  background-color: var(--color-antique-gold);
+  color: var(--color-cinema-black);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 1.2rem;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+  border: 1px solid var(--color-antique-gold);
+}
+
+.submitBtn:hover {
+  background-color: transparent;
+  color: var(--color-bright-gold);
+  border-color: var(--color-bright-gold);
+}
+
+.successCard {
+  text-align: center;
+  padding: 4rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.successIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid var(--color-bright-gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-bright-gold);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.successCard h3 {
+  font-size: 2rem;
+  color: var(--color-bone-white);
+}
+
+.successCard p {
+  font-size: 1.05rem;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+.resetBtn {
+  margin-top: 1rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-antique-gold);
+  text-decoration: underline;
+  background: transparent;
+  cursor: pointer;
+}

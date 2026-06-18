@@ -1,142 +1,330 @@
-.page {
-  --background: #fafafa;
-  --foreground: #fff;
-
-  --text-primary: #000;
-  --text-secondary: #666;
-
-  --button-primary-hover: #383838;
-  --button-secondary-hover: #f2f2f2;
-  --button-secondary-border: #ebebeb;
-
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-geist-sans);
-  background-color: var(--background);
-}
-
 .main {
-  display: flex;
-  flex: 1;
-  width: 100%;
-  max-width: 800px;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: space-between;
-  background-color: var(--foreground);
-  padding: 120px 60px;
-}
-
-.intro {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  gap: 24px;
+  position: relative;
 }
 
-.intro h1 {
-  max-width: 320px;
-  font-size: 40px;
-  font-weight: 600;
-  line-height: 48px;
-  letter-spacing: -2.4px;
-  text-wrap: balance;
-  color: var(--text-primary);
-}
-
-.intro p {
-  max-width: 440px;
-  font-size: 18px;
-  line-height: 32px;
-  text-wrap: balance;
-  color: var(--text-secondary);
-}
-
-.intro a {
-  font-weight: 500;
-  color: var(--text-primary);
-}
-
-.ctas {
-  display: flex;
-  flex-direction: row;
+.cinemaOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
-  max-width: 440px;
-  gap: 16px;
-  font-size: 14px;
+  height: 100vh;
+  background-color: var(--color-cinema-black);
+  z-index: 500;
+  pointer-events: none;
 }
 
-.ctas a {
+.hero {
+  height: 100vh;
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 40px;
-  padding: 0 16px;
-  border-radius: 128px;
-  border: 1px solid transparent;
-  transition: 0.2s;
-  cursor: pointer;
-  width: fit-content;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroBackground {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(61, 15, 15, 0.4) 0%, var(--color-cinema-black) 70%);
+  z-index: 1;
+}
+
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 60vw;
+  background: radial-gradient(circle, rgba(201, 160, 92, 0.05) 0%, transparent 60%);
+  border-radius: 50%;
+  filter: blur(60px);
+}
+
+.heroContent {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(4rem, 10vw, 8rem);
+  letter-spacing: 0.15em;
+  color: var(--color-antique-gold);
+  margin-bottom: 1rem;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.subtitle {
+  font-size: clamp(0.8rem, 2vw, 1.2rem);
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--color-bone-white);
+  opacity: 0.8;
+  margin-bottom: 3rem;
+  font-weight: 300;
+}
+
+.cta {
+  margin-top: 2rem;
+}
+
+.primaryButton {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  border: 1px solid var(--color-antique-gold);
+  color: var(--color-antique-gold);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transition: all 0.4s ease;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+}
+
+.primaryButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-antique-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.primaryButton:hover {
+  color: var(--color-cinema-black);
+}
+
+.primaryButton:hover::before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Teaser Section */
+.teaser {
+  padding: 8rem 0;
+  background-color: var(--color-charcoal);
+  border-top: 1px solid rgba(201, 160, 92, 0.05);
+}
+
+.teaserGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: center;
+}
+
+.teaserText h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+}
+
+.teaserText p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--color-bone-white);
+  opacity: 0.7;
+  margin-bottom: 3rem;
+}
+
+.linkButton {
+  color: var(--color-bright-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.9rem;
   font-weight: 500;
+  position: relative;
+  padding-bottom: 0.5rem;
 }
 
-a.primary {
-  background: var(--text-primary);
-  color: var(--background);
-  gap: 8px;
+.linkButton::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-bright-gold);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
 }
 
-a.secondary {
-  border-color: var(--button-secondary-border);
+.linkButton:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
-/* Enable hover only on non-touch devices */
-@media (hover: hover) and (pointer: fine) {
-  a.primary:hover {
-    background: var(--button-primary-hover);
-    border-color: transparent;
-  }
-
-  a.secondary:hover {
-    background: var(--button-secondary-hover);
-    border-color: transparent;
-  }
+/* Director's Cut Visual */
+.directorsCut {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
 }
 
-@media (max-width: 600px) {
-  .main {
-    padding: 48px 24px;
-  }
-
-  .intro {
-    gap: 16px;
-  }
-
-  .intro h1 {
-    font-size: 32px;
-    line-height: 40px;
-    letter-spacing: -1.92px;
-  }
+.filmFrame {
+  display: flex;
+  background: var(--color-cinema-black);
+  border: 1px solid rgba(201, 160, 92, 0.12);
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(201, 160, 92, 0.05) inset;
+  position: relative;
 }
 
-@media (prefers-color-scheme: dark) {
-  .logo {
-    filter: invert();
+.filmStrip {
+  width: 28px;
+  background: var(--color-cinema-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 10px 0;
+  border: 0 solid rgba(201, 160, 92, 0.08);
+  flex-shrink: 0;
+}
+
+.filmStrip:first-child {
+  border-right-width: 1px;
+}
+
+.filmStrip:last-child {
+  border-left-width: 1px;
+}
+
+.filmHole {
+  width: 12px;
+  height: 8px;
+  border-radius: 2px;
+  background: rgba(201, 160, 92, 0.06);
+  border: 1px solid rgba(201, 160, 92, 0.1);
+}
+
+.filmContent {
+  position: relative;
+  width: 280px;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+}
+
+.filmImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: contrast(1.1) brightness(0.9) sepia(0.15);
+  transition: filter 0.5s ease, transform 0.5s ease;
+}
+
+.filmFrame:hover .filmImage {
+  filter: contrast(1.15) brightness(0.95) sepia(0.05);
+  transform: scale(1.03);
+}
+
+.filmOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    transparent 30%,
+    rgba(10, 8, 7, 0.6) 70%,
+    rgba(10, 8, 7, 0.9) 100%
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 2rem 1rem;
+  gap: 0.75rem;
+}
+
+.playIcon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid rgba(201, 160, 92, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-antique-gold);
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+}
+
+.playIcon svg {
+  width: 18px;
+  height: 18px;
+  margin-left: 3px;
+}
+
+.filmFrame:hover .playIcon {
+  border-color: var(--color-bright-gold);
+  background: rgba(201, 160, 92, 0.1);
+  transform: scale(1.1);
+}
+
+.filmLabel {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-antique-gold);
+  font-style: italic;
+}
+
+.directorsBadge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.badgeLine {
+  width: 30px;
+  height: 1px;
+  background: rgba(201, 160, 92, 0.3);
+}
+
+.badgeText {
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--color-antique-gold);
+  opacity: 0.5;
+}
+
+@media (max-width: 900px) {
+  .teaserGrid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
   }
 
-  .page {
-    --background: #000;
-    --foreground: #000;
+  .filmContent {
+    width: 240px;
+  }
 
-    --text-primary: #ededed;
-    --text-secondary: #999;
-
-    --button-primary-hover: #ccc;
-    --button-secondary-hover: #1a1a1a;
-    --button-secondary-border: #1a1a1a;
+  .teaserText h2 {
+    font-size: 2.2rem;
   }
 }
